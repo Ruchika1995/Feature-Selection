@@ -1,0 +1,10 @@
+# Boruta:
+The Boruta algorithm is a wrapper built around the random forest classification algorithm. It tries to capture all the important, interesting features you might have in your data set with respect to an outcome variable.
+Methodology:
+1.First it creates randomness to the features by creating duplicate features and shuffle the values in each column. This features are called Shadow Features.
+
+2.Trains a classifier (Random Forest) on the Dataset and calculate the importance using Mean Decrease Accuracy or Mean Decrease Impurity.
+
+3.Then, the algorithm checks for each of your real features if they have higher importance. That is, whether the feature has a higher Z-score than the maximum Z-score of its shadow features than the best of the shadow features.
+
+4.At every iteration, the algorithm compares the Z-scores of the shuffled copies of the features and the original features to see if the latter performed better than the former. If it does, the algorithm will mark the feature as important.
